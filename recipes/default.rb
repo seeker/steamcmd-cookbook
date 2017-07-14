@@ -24,3 +24,14 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
+execute 'add 32 bit packages' do
+	command "dpkg --add-architecture i386"
+end
+
+apt_update 'update apt' do
+  action :update
+end
+
+package 'steamcmd' do
+	response_file 'steamcmd.seed'
+end
